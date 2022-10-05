@@ -18,7 +18,8 @@ class HomeListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        viewModel.delegate = self
+        viewModel.viewDelegate = self
+        viewModel.didViewLoad()
     }
 }
 
@@ -27,6 +28,11 @@ private extension HomeListViewController{
     func setupUI(){
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
+        registerCell()
+    }
+    
+    func registerCell(){
+        countriesTableView.register(.init(nibName: "CountryTableViewCell", bundle: nil), forCellReuseIdentifier: "CountryTableViewCell")
     }
 }
 
@@ -34,23 +40,36 @@ extension HomeListViewController : HomeListViewModelViewProtocol{
     
     func didCellItemFetch(_ items: [CountryCellViewModel]) {
         self.items = items
-        countriesTableView.reloadData()
+        DispatchQueue.main.async {
+            self.countriesTableView.reloadData()
+
+        }
     }
+    func showEmptyView(){}
+    func hideEmptyView(){}
 }
 
 extension HomeListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         viewModel.didClickItem(at: indexPath.row)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailCardViewController") as? DetailCardViewController{
+            vc.country = items[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
 
 extension HomeListViewController : UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = countriesTableView.dequeueReusableCell(withIdentifier: "CountryTableViewCell") as! CountryTableViewCell
+        cell.configure(viewModel: items[indexPath.row])
         return cell
     }
 }

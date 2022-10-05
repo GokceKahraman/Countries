@@ -18,36 +18,47 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNv-Gr-ZSE">
-                        <rect key="frame" x="10" y="10" width="300" height="77"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="20" y="10" width="280" height="77"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbq-pj-Txe" userLabel="Star Button">
-                        <rect key="frame" x="320" y="10" width="52" height="77"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbq-pj-Txe" userLabel="Star">
+                        <rect key="frame" x="310" y="10" width="52" height="77"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="77" id="he0-Nv-7o6"/>
                             <constraint firstAttribute="width" constant="52" id="mko-Xm-5Jq"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="star" catalog="system"/>
+                        <state key="selected" image="star.fill" catalog="system"/>
+                        <connections>
+                            <action selector="savedButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iW7-Pz-uwY"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gbq-pj-Txe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3Dp-w7-6I7"/>
                     <constraint firstAttribute="bottom" secondItem="gbq-pj-Txe" secondAttribute="bottom" constant="10" id="4ll-Wq-UvY"/>
-                    <constraint firstAttribute="trailing" secondItem="gbq-pj-Txe" secondAttribute="trailing" constant="10" id="AWb-qN-w9S"/>
+                    <constraint firstAttribute="trailing" secondItem="gbq-pj-Txe" secondAttribute="trailing" constant="20" id="AWb-qN-w9S"/>
                     <constraint firstItem="eNv-Gr-ZSE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="PXn-M3-BCJ"/>
-                    <constraint firstItem="eNv-Gr-ZSE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RMj-AB-LJI"/>
+                    <constraint firstItem="eNv-Gr-ZSE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="RMj-AB-LJI"/>
                     <constraint firstAttribute="bottom" secondItem="eNv-Gr-ZSE" secondAttribute="bottom" constant="10" id="dM1-bW-9UU"/>
                     <constraint firstItem="gbq-pj-Txe" firstAttribute="leading" secondItem="eNv-Gr-ZSE" secondAttribute="trailing" constant="10" id="uXy-ga-tvs"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="countryName" destination="eNv-Gr-ZSE" id="RgH-Pp-hsJ"/>
+                <outlet property="starButton" destination="gbq-pj-Txe" id="d9z-9k-VxW"/>
+            </connections>
             <point key="canvasLocation" x="186.15384615384616" y="1.777251184834123"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
 </document>
