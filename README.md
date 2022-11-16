@@ -6,7 +6,6 @@ Shows countries and  their details.
 • At HomePage Countries limit paramater’s value is 10.
 • All countries listed as HomePage image.
 • Users can add a country to the saved list.
-• Users can remove a country from the saved list.
 • User can go to the detail card by selecting a country. 
 • At DetilPage user navigated to wikidata with “wikiDataId” by clicking For More Information button. 
 
