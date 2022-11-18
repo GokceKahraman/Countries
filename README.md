@@ -3,7 +3,7 @@ Shows countries and  their details.
  You can save the country and check the saved list.
 
 • GeoDB Cities - API used.
-• At HomePage Countries limit paramater’s value is 10.
+• At HomePage Countries limit paramater’s value is 10
 • All countries listed as HomePage image.
 • Users can add a country to the saved list.
 • User can go to the detail card by selecting a country. 
